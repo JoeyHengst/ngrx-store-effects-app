@@ -22,6 +22,7 @@ import { Topping } from '../../models/topping.model';
 
 @Component({
   selector: 'pizza-form',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['pizza-form.component.scss'],
   template: `
     <div class="pizza-form">
@@ -92,7 +93,7 @@ export class PizzaFormComponent implements OnChanges {
   @Input() pizza: Pizza;
   @Input() toppings: Topping[];
 
-  @Output() selected = new EventEmitter<number[]>();
+  @Output() selected = new EventEmitter<Pizza>();
   @Output() create = new EventEmitter<Pizza>();
   @Output() update = new EventEmitter<Pizza>();
   @Output() remove = new EventEmitter<Pizza>();
